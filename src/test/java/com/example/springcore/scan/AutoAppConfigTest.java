@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.*;
 
 public class AutoAppConfigTest {
     @Test
-    void basicScan() {
+    void  basicScan() {
         // 설정 정보로 AutoAppConfig 넘겨줌: ClassPathBeanDefinitionScanner 호출 -> 싱글톤 빈 인스턴스 생성
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class);
 

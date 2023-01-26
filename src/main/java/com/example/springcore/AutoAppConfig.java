@@ -1,7 +1,11 @@
 package com.example.springcore;
 
+import com.example.springcore.discount.DiscountPolicy;
 import com.example.springcore.member.MemberRepository;
 import com.example.springcore.member.MemoryMemberRepository;
+import com.example.springcore.order.OrderService;
+import com.example.springcore.order.OrderServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -17,6 +21,7 @@ import org.springframework.context.annotation.FilterType;
         excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class)
 )
 public class AutoAppConfig {
+
     // ComponentScan으로 자동 등록되는 빈과 똑같은 이름으로 수동 등록
     // 수동 등록 되는 빈이 자동 등록되는 빈 override
     @Bean(name = "memoryMemberRepository")
