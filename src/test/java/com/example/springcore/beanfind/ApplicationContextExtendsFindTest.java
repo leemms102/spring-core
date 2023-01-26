@@ -19,15 +19,14 @@ public class ApplicationContextExtendsFindTest {
     AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(TestConfig.class);
 
     @Test
-    @DisplayName("부모 탑으로 조회 시, 자식이 둘 이상 있으면 중복 오류가 발생")
+    @DisplayName("부모 타입으로 조회 시, 자식이 둘 이상 있으면 중복 오류가 발생")
     void findBeanByParentTypeDuplicate() {
-        DiscountPolicy bean = ac.getBean(DiscountPolicy.class);
         assertThrows(NoUniqueBeanDefinitionException.class,
                 () -> ac.getBean(DiscountPolicy.class));
     }
 
     @Test
-    @DisplayName("부모 탑으로 조회 시, 자식이 둘 이상 있으면 빈 이름 지정")
+    @DisplayName("부모 타입으로 조회 시, 자식이 둘 이상 있으면 빈 이름 지정")
     void findBeanByParentTypeBeanName() {
         DiscountPolicy rateDiscountPolicy = ac.getBean("rateDiscountPolicy", DiscountPolicy.class);
         assertThat(rateDiscountPolicy).isInstanceOf(RateDiscountPolicy.class);

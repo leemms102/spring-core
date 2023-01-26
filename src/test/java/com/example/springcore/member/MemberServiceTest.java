@@ -12,11 +12,12 @@ public class MemberServiceTest {
 
     @BeforeEach
     public void beforeEach() {
-//        AppConfig appConfig = new AppConfig();
-//        memberService = appConfig.memberService();
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
 
-        memberService = applicationContext.getBean("memberService", MemberService.class);
+//        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+//
+//        memberService = applicationContext.getBean("memberService", MemberService.class);
     }
 
 //    MemberService memberService = new MemberServiceImpl(memberRepository);

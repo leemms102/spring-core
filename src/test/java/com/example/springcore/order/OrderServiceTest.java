@@ -1,10 +1,9 @@
 package com.example.springcore.order;
 
 import com.example.springcore.AppConfig;
-import com.example.springcore.member.Grade;
-import com.example.springcore.member.Member;
-import com.example.springcore.member.MemberService;
-import com.example.springcore.member.MemberServiceImpl;
+import com.example.springcore.discount.DiscountPolicy;
+import com.example.springcore.discount.FixedDiscountPolicy;
+import com.example.springcore.member.*;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,14 +16,14 @@ public class OrderServiceTest {
 
     @BeforeEach
     public void beforeEach() {
-//        AppConfig appConfig = new AppConfig();
-//        memberService = appConfig.memberService();
-//        orderService = appConfig.orderService();
-
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
-
-        memberService = applicationContext.getBean("memberService", MemberService.class);
-        orderService = applicationContext.getBean("orderService", OrderService.class);
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+        orderService = appConfig.orderService();
+//
+//        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+//
+//        memberService = applicationContext.getBean("memberService", MemberService.class);
+//        orderService = applicationContext.getBean("orderService", OrderService.class);
     }
 
     //    MemberService memberService = new MemberServiceImpl(memberRepository);
@@ -37,4 +36,15 @@ public class OrderServiceTest {
         Order order = orderService.createOrder(memberId, "itemA", 10000);
         Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);
     }
+
+//    @Test
+//    void fieldInjectionTest() {
+//        OrderServiceImpl orderService = new OrderServiceImpl(new MemoryMemberRepository(), new FixedDiscountPolicy());
+//
+//        // 필드 주입했지만 객체가 없으므로 set 안하면 NPE 발생
+//        orderService.setMemberRepository(new MemoryMemberRepository());
+//        orderService.setDiscountPolicy(new FixedDiscountPolicy());
+//
+//        orderService.createOrder(1L, "itemA", 10000);
+//    }
 }
