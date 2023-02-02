@@ -17,7 +17,7 @@ import org.springframework.context.annotation.FilterType;
 @ComponentScan(
         // 아래 패키지만 탐색
         basePackages = "com.example.springcore",
-        // 제외할 클래스
+        // 제외할 클래스: AppConfig에 등록한 bean
         excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class)
 )
 public class AutoAppConfig {
