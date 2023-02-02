@@ -18,7 +18,7 @@ public class OrderServiceImpl implements OrderService {
     // private final이면 여기서나 생성자에서만 넣어줄 수 있음
     // final로 불변을 지키고 생성자 의존관계 누락을 막아줌
 
-//      1. 필드 이름을 빈 이름과 일치시켜 선택
+//    조회 대상 빈이 2개 이상일 때 DI - 1. 필드 이름을 빈 이름과 일치시켜 선택
 //    @Autowired
 //    private DiscountPolicy rateDiscountPolicy;
 

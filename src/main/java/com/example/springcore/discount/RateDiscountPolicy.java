@@ -8,8 +8,10 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-@Qualifier("mainDiscountPolicy")    // 2. @Qualifier 이름으로 의존관계 명시
-// @MainDiscountPolicy 4. custom annotation
+// 조회 대상 빈이 2개 이상일 때 DI - 2. @Qualifier 이름으로 의존관계 명시
+@Qualifier("mainDiscountPolicy")
+// 4. custom annotation: 컴파일 시 타입 체크 가능
+// @MainDiscountPolicy
 @Primary    // 3. @Primary는 가정 우선적으로 의존관계 주입
 public class RateDiscountPolicy implements DiscountPolicy {
     private int discountPercent = 10;
